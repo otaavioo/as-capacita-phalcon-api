@@ -1,0 +1,23 @@
+{
+    "name": "agenciasys/as-capacita",
+    "description": "API do sistema Agência Sys",
+    "require": {
+        "vlucas/phpdotenv": "2.1.0"
+    },
+    "authors": [{
+        "name": "André Fauth",
+        "email": "andre@agenciasys.com.br"
+    }, {
+        "name": "Carlos Roberto Paulischen",
+        "email": "carlos@agenciasys.com.br"
+    }, {
+        "name": "Diogo Alexsander Cavilha",
+        "email": "diogo@agenciasys.com.br"
+    }, {
+        "name": "Otávio Augusto Borges Pinto",
+        "email": "otavio@agenciasys.com.br"
+    }],
+    "config": {
+        "vendor-dir": "vendor/"
+    }
+}

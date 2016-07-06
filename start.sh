@@ -1,0 +1,1 @@
+php -S localhost:$1 -t public/ public/.htrouter.php
