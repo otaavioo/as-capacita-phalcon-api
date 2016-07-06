@@ -18,8 +18,8 @@ $composerAutoload = '../vendor/autoload.php';
 if (file_exists($composerAutoload)) {
     require $composerAutoload;
 
-    $environmentVarsFile = __DIR__ . '/../apps/config/.env';
-    $environmentVarsDir  = __DIR__ . '/../apps/config';
+    $environmentVarsFile = __DIR__ . '/../app/configs/.env';
+    $environmentVarsDir  = __DIR__ . '/../app/configs';
 
     if (file_exists($environmentVarsFile)) {
         $dotenv = new Dotenv\Dotenv($environmentVarsDir);
@@ -51,18 +51,6 @@ $di->set(
     'collections',
     function () {
         return include('./routes/routeLoader.php');
-    }
-);
-
-/**
- * $di's setShared method provides a singleton instance.
- * If the second parameter is a function, then the service is lazy-loaded
- * on its first instantiation.
- */
-$di->setShared(
-    'config',
-    function () {
-        return new IniConfig('../apps/config/config.ini');
     }
 );
 
