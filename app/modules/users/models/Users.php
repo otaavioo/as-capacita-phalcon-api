@@ -8,7 +8,7 @@ namespace App\Users\Models;
  * @author Otávio Augusto Borges Pinto <otavio@agenciasys.com.br>
  * @copyright Softers Sistemas de Gestão © 2016
  */
-class Users extends \App\Services\Models\BaseASClient
+class Users extends \App\Models\BaseModel
 {
     /**
      * @Primary
