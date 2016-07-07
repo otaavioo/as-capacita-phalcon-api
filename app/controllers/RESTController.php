@@ -1,7 +1,8 @@
 <?php
 namespace App\Controllers;
 
-use \App\Exceptions\HTTPException;
+use App\Traits\Sql;
+use App\Exceptions\HTTPException;
 
 /**
  * Base RESTful Controller.
@@ -18,6 +19,7 @@ use \App\Exceptions\HTTPException;
  */
 class RESTController extends \App\Controllers\Controller
 {
+    use Sql;
 
     /**
      * If query string contains 'q' parameter.

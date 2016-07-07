@@ -5,7 +5,7 @@ return [
     'AgenciaSys\Exception'  => __DIR__ . '/../library/agenciasys/exception/',
     'App\Controllers'       => __DIR__ . '/../app/controllers/',
     'App\Exceptions'        => __DIR__ . '/../app/exceptions/',
-    'App\Mappers'           => __DIR__ . '/../app/mappers/',
+    'App\Traits'            => __DIR__ . '/../app/traits/',
     'App\Models'            => __DIR__ . '/../app/models/',
     'App\Responses'         => __DIR__ . '/../app/responses/',
     'App\Services\Models'   => __DIR__ . '/../app/services/models/',

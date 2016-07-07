@@ -2,6 +2,7 @@
 namespace App\Users\Controllers;
 
 use App\Controllers\RESTController;
+use App\Users\Models\Users;
 
 /**
  * Gerencia as requisições para o módulo admin.
@@ -20,6 +21,24 @@ class UsersController extends RESTController
      */
     public function getUsers()
     {
+        try {
+            $usersModel = new Users();
+            var_dump($usersModel->find());
+            die;
+
+            $users = $usersModel->find(
+                [
+                    'conditions' => 'true ' . $this->getConditions(),
+                    'columns' => $this->partialFields,
+                    'limit' => $this->limit
+                ]
+            );
+
+            return is_object($users) ? $users->toArray() : [];
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage(), $e->getCode());
+
+        }
     }
 
     /**

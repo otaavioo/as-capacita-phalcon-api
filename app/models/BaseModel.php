@@ -1,16 +1,12 @@
 <?php
 namespace App\Models;
 
-use Softers\Error\Message;
-use Phalcon\Db\RawValue;
-use App\Redis\Redis;
-
 /**
  * Model base
  *
  * @package App/Services/Models
- * @author Diogo Alexsander Cavilha <diogo@softers.com.br>
- * @copyright Softers Sistemas de Gestão © 2014, Diogo Alexsander Cavilha
+ * @author Otávio Augusto Borges Pinto <otavio@agenciasys.com.br>
+ * @copyright Softers Sistemas de Gestão © 2016
  */
 class BaseModel extends \Phalcon\Mvc\Model
 {
