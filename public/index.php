@@ -36,6 +36,14 @@ use Phalcon\Db\Adapter\Pdo\Mysql;
 ErrorHandler::set();
 ExceptionHandler::set();
 
+if (isset($dotenv)) {
+    $dotenv->required([
+        'DB_USER',
+        'DB_PASS',
+        'DB_SCHEMA',
+    ])->notEmpty();
+}
+
 /**
  * The DI is our direct injector.  It will store pointers to all of our services
  * and we will insert it into all of our controllers.
