@@ -23,8 +23,6 @@ class UsersController extends RESTController
     {
         try {
             $usersModel = new Users();
-            var_dump($usersModel->find());
-            die;
 
             $users = $usersModel->find(
                 [
@@ -47,8 +45,23 @@ class UsersController extends RESTController
      * @access public
      * @return Array Usuário.
      */
-    public function getUser()
+    public function getUser($iUserId)
     {
+        try {
+            $usersModel = new Users();
+
+            $users = $usersModel->findFirst(
+                [
+                    'conditions' => "iUserId = '$iUserId'",
+                    'columns' => $this->partialFields,
+                ]
+            );
+
+            return is_object($users) ? $users->toArray() : [];
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage(), $e->getCode());
+
+        }
     }
 
     /**
