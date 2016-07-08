@@ -15,7 +15,7 @@ $ git clone https://github.com/agenciasys/as-capacita-phalcon-api.git
 
 #####Estrutura do Projeto
 ```
-as-capacita-phalcon-mvc/
+as-capacita-phalcon-api/
     app/
     configs/
     controllers/
