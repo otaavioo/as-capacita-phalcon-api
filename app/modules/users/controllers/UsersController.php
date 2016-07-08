@@ -32,7 +32,7 @@ class UsersController extends RESTController
                 ]
             );
 
-            return is_object($users) ? $users->toArray() : [];
+            return $users;
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage(), $e->getCode());
 
@@ -57,7 +57,7 @@ class UsersController extends RESTController
                 ]
             );
 
-            return is_object($users) ? $users->toArray() : [];
+            return $users;
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage(), $e->getCode());
 
@@ -72,6 +72,17 @@ class UsersController extends RESTController
      */
     public function addUser()
     {
+        try {
+            $usersModel = new Users();
+            $usersModel->sName = $this->di->get('request')->get('sName');
+            $usersModel->sEmail = $this->di->get('request')->get('sEmail');
+
+            $usersModel->saveDB();
+
+            return $usersModel;
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage(), $e->getCode());
+        }
     }
 
     /**

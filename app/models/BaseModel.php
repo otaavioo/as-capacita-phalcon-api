@@ -26,6 +26,6 @@ class BaseModel extends \Phalcon\Mvc\Model
 
     public function notSave()
     {
-        throw new \Exception(implode(' AND ', $this->getMessages()).' on model '.get_class($this), Message::DB_ERROR);
+        throw new \Exception(implode(' AND ', $this->getMessages()).' on model '.get_class($this), 100);
     }
 }
