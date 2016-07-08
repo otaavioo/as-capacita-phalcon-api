@@ -11,7 +11,7 @@ class JSONResponse extends Response
         parent::__construct();
     }
 
-    public function send($records, $error=false)
+    public function send($records, $error = false)
     {
         // Error's come from HTTPException.  This helps set the proper envelope data
         $response = $this->di->get('response');
@@ -40,12 +40,11 @@ class JSONResponse extends Response
             );
 
             // Handle 0 record responses, or assign the records
-            if ($message['_meta']['count'] === 0) {
+            $message['records'] = $records;
+            if ($records === false || $message['_meta']['count'] === 0) {
                 // This is required to make the response JSON return an empty JS object.  Without
                 // this, the JSON return an empty array:  [] instead of {}
                 $message['records'] = new \stdClass();
-            } else {
-                $message['records'] = $records;
             }
         } else {
             $response->setHeader('X-Record-Count', count($records));

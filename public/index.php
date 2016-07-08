@@ -174,6 +174,10 @@ $app->after(
         if (!$app->request->get('type') || $app->request->get('type') == 'json') {
             // Results returned from the route's controller.  All Controllers should return an array
             $records = $app->getReturnedValue();
+            if (is_object($records) && ($records instanceof \Phalcon\Mvc\Model)) {
+                $records = $records->toArray();
+            }
+
             $response = new \App\Responses\JSONResponse();
 
             $response->useEnvelope(true) //this is default behavior
