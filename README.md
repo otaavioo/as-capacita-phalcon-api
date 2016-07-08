@@ -38,7 +38,7 @@ as-capacita-phalcon-mvc/
 ```
 
 #####Variáveis de Ambiente
-> obs.: Criar arquivo `.env` no diretório `app/configs` com o código abaixo
+> Criar arquivo `.env` no diretório `app/configs` com o código abaixo
 
 ```
 DB_USER = "user"
