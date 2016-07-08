@@ -110,7 +110,18 @@ class UsersController extends RESTController
      * @access public
      * @return boolean.
      */
-    public function deleteUser()
+    public function deleteUser($iUserId)
     {
+        try {
+            $user = (new Users())->findFirst($iUserId);
+
+            if (false === $user) {
+                return ['success' => false];
+            }
+
+            return ['success' => $user->delete()];
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage(), $e->getCode());
+        }
     }
 }

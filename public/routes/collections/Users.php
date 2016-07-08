@@ -15,7 +15,7 @@ return call_user_func(
 
         $userCollection->put('/{id:\d+}', 'editUser');
 
-        $userCollection->delete('/', 'deleteUser');
+        $userCollection->delete('/{id:\d+}', 'deleteUser');
 
         return $userCollection;
     }
