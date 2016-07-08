@@ -13,7 +13,7 @@ Clone do Projeto
 $ git clone https://github.com/agenciasys/as-capacita-phalcon-api.git
 ```
 
-Estrutura do Projeto
+#####Estrutura do Projeto
 ```
 as-capacita-phalcon-mvc/
     app/
@@ -37,7 +37,7 @@ as-capacita-phalcon-mvc/
     vendor/
 ```
 
-Variáveis de Ambiente
+#####Variáveis de Ambiente
 > obs.: Criar arquivo `.env` no diretório `app/configs` com o código abaixo
 
 ```
@@ -46,25 +46,16 @@ DB_PASS = "passwd"
 DB_SCHEMA = "as-capacita-phalcon"
 ```
 
-Banco de Dados
+#####Banco de Dados
 ```sql
--- CREATE DATABASE "as-capacita-phalcon" ---------------
-CREATE DATABASE IF NOT EXISTS `as-capacita-phalcon` CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `as-capacita-phalcon`;
--- ---------------------------------------------------------
-
-
--- CREATE TABLE "users" ------------------------------------
-CREATE TABLE `users` (
-    `iUserId` Int( 10 ) UNSIGNED AUTO_INCREMENT NOT NULL,
-    `sName` VarChar( 70 ) NOT NULL,
-    `sEmail` VarChar( 70 ) NOT NULL,
-    PRIMARY KEY ( `iUserId` ) )
-ENGINE = InnoDB;
+-- ALTER TABLE "users" ------------------------------------
+ALTER TABLE users
+    ADD `dtCreated` DateTime,
+    ADD `dtUpdated` DateTime
 -- ---------------------------------------------------------
 ```
 
-Composer
+#####Composer
 ```bash
 $ cd /www/as-capacita-phalcon-api/
 $ composer install
