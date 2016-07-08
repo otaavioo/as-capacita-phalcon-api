@@ -22,9 +22,7 @@ class UsersController extends RESTController
     public function getUsers()
     {
         try {
-            $usersModel = new Users();
-
-            $users = $usersModel->find(
+            $users = (new Users())->find(
                 [
                     'conditions' => 'true ' . $this->getConditions(),
                     'columns' => $this->partialFields,
@@ -48,9 +46,7 @@ class UsersController extends RESTController
     public function getUser($iUserId)
     {
         try {
-            $usersModel = new Users();
-
-            $users = $usersModel->findFirst(
+            $users = (new Users())->findFirst(
                 [
                     'conditions' => "iUserId = '$iUserId'",
                     'columns' => $this->partialFields,
@@ -74,8 +70,8 @@ class UsersController extends RESTController
     {
         try {
             $usersModel = new Users();
-            $usersModel->sName = $this->di->get('request')->get('sName');
-            $usersModel->sEmail = $this->di->get('request')->get('sEmail');
+            $usersModel->sName = $this->di->get('request')->getPost('sName');
+            $usersModel->sEmail = $this->di->get('request')->getPost('sEmail');
 
             $usersModel->saveDB();
 
@@ -91,8 +87,21 @@ class UsersController extends RESTController
      * @access public
      * @return Array.
      */
-    public function editUser()
+    public function editUser($iUserId)
     {
+        try {
+            $put = $this->di->get('request')->getPut();
+
+            $user = (new Users())->findFirst($iUserId);
+            $user->sName = isset($put['sName']) ? $put['sName'] : $user->sName;
+            $user->sEmail = isset($put['sEmail']) ? $put['sEmail'] : $user->sEmail;
+
+            $user->saveDB();
+
+            return $user;
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage(), $e->getCode());
+        }
     }
 
     /**

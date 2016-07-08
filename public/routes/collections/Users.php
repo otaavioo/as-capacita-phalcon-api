@@ -13,7 +13,7 @@ return call_user_func(
 
         $userCollection->post('/', 'addUser');
 
-        $userCollection->put('/', 'editUser');
+        $userCollection->put('/{id:\d+}', 'editUser');
 
         $userCollection->delete('/', 'deleteUser');
 
