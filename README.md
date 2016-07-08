@@ -47,6 +47,8 @@ DB_SCHEMA = "as-capacita-phalcon"
 ```
 
 #####Banco de Dados
+>[CREATE DATABASE](https://github.com/agenciasys/as-capacita-phalcon-mvc/blob/master/README.md#banco-de-dados)
+
 ```sql
 -- ALTER TABLE "users" ------------------------------------
 ALTER TABLE users
