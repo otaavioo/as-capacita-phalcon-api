@@ -33,7 +33,6 @@ class UsersController extends RESTController
             return $users;
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage(), $e->getCode());
-
         }
     }
 
@@ -56,7 +55,6 @@ class UsersController extends RESTController
             return $users;
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage(), $e->getCode());
-
         }
     }
 
@@ -93,6 +91,11 @@ class UsersController extends RESTController
             $put = $this->di->get('request')->getPut();
 
             $user = (new Users())->findFirst($iUserId);
+
+            if (false === $user) {
+                throw new \Exception("This record doesn't exist", 200);
+            }
+
             $user->sName = isset($put['sName']) ? $put['sName'] : $user->sName;
             $user->sEmail = isset($put['sEmail']) ? $put['sEmail'] : $user->sEmail;
 
@@ -116,7 +119,7 @@ class UsersController extends RESTController
             $user = (new Users())->findFirst($iUserId);
 
             if (false === $user) {
-                return ['success' => false];
+                throw new \Exception("This record doesn't exist", 200);
             }
 
             return ['success' => $user->delete()];

@@ -50,8 +50,8 @@ DB_SCHEMA = "as-capacita-phalcon"
 ```sql
 -- ALTER TABLE "users" ------------------------------------
 ALTER TABLE users
-    ADD `dtCreated` DateTime,
-    ADD `dtUpdated` DateTime
+    ADD `dtCreated` DateTime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    ADD `dtUpdated` DateTime NOT NULL DEFAULT '0000-00-00 00:00:00'
 -- ---------------------------------------------------------
 ```
 
