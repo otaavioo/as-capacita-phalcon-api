@@ -177,7 +177,7 @@ $app->after(
             $response = new \App\Responses\JSONResponse();
 
             $response->useEnvelope(true) //this is default behavior
-                ->convertSnakeCase(true); //this is also default behavior
+                ->convertSnakeCase(false); //this is also default behavior
 
             if (isset($records['errorCode'])) {
                 $response->send($records, true);

@@ -158,7 +158,7 @@ class RESTController extends \App\Controllers\Controller
             $this->searchFields = $this->parseSearchParameters($searchParams);
 
             // This handly snippet determines if searchFields is a strict subset of allowedFields['search']
-            if (array_diff(array_keys($this->searchFields), $this->allowedFields['search'])) {
+            /*if (array_diff(array_keys($this->searchFields), $this->allowedFields['search'])) {
                 throw new HTTPException(
                     "The fields you specified cannot be searched.",
                     401,
@@ -168,7 +168,7 @@ class RESTController extends \App\Controllers\Controller
                         'more' => '' // Could have link to documentation here.
                     )
                 );
-            }
+            }*/
         }
 
         // If there's a 'fields' paramter, this is a partial request.  Ensures all the requested fields
@@ -178,7 +178,7 @@ class RESTController extends \App\Controllers\Controller
             $this->partialFields = $this->parsePartialFields($fields);
 
             // Determines if fields is a strict subset of allowed fields
-            if (array_diff($this->partialFields, $this->allowedFields['partials'])) {
+            /*if (array_diff($this->partialFields, $this->allowedFields['partials'])) {
                 throw new HTTPException(
                     "The fields you asked for cannot be returned.",
                     401,
@@ -188,7 +188,7 @@ class RESTController extends \App\Controllers\Controller
                         'more' => '' // Could have link to documentation here.
                     )
                 );
-            }
+            }*/
         }
 
         return true;
